@@ -3,3 +3,6 @@ Get-ChildItem c:\ -Recurse | Where-Object {$_.Length -gt 100MB}
 
 REM This command can also be entered abbreviated
 gci c:\ -rec | where {$_.Length -gt 100mb}  
+
+REM Sort by "Name" aliases you used
+gci . -rec -ErrorAction "SilentlyContinue" | where {$_.Length -gt 100mb} | select-Object Name, @{Name="Age";Expression={ (((Get-Date) - $_.CreationTime).Days) }},  @{Name="MBs";Expression={"{0:N0}" -f ($_.Length / 1MB)}} | Sort-Object MBs -descending
