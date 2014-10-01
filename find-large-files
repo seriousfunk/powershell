@@ -1,0 +1,5 @@
+REM To search for files larger than 100MB on Drive C type:
+Get-ChildItem c:\ -Recurse | Where-Object {$_.Length -gt 100MB}
+
+REM This command can also be entered abbreviated
+gci c:\ -rec | where {$_.Length -gt 100mb}  
