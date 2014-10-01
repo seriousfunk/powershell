@@ -1,0 +1,1 @@
+Get-Childitem | Rename-Item –NewName { $_.name –replace "this","with-this" }
