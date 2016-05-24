@@ -1,1 +1,4 @@
 Get-Childitem | Rename-Item –NewName { $_.name –replace "this","with-this" }
+
+# Recursively go through YourDirectory changing all filenames to lowercase
+dir YourDirectory -r | % { if ($_.Name -cne $_.Name.ToLower()) { ren $_.FullName $_.Name.ToLower() } }
